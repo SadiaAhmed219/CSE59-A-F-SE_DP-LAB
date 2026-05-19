@@ -387,7 +387,7 @@ The system shall provide secure authentication and authorization.
 
 ## 4.1 Context Diagram
 
-<img src="images/mermaid-diagram(2).png">
+<img src="images/mermaid-diagram (2).png">
 
 # 5. External Interface Requirements
 
