@@ -1,214 +1,612 @@
-# Software Requirements Specification (SRS)
+ Preface
 
-## Preface
+This Software Requirements Specification (SRS) document describes the functional and non-functional requirements of the **WorkSync – Smart Workflow & Collaboration Management System**. The purpose of this document is to provide developers, stakeholders, project managers, testers, and future maintainers with a clear understanding of the system’s features, architecture, constraints, and expected behaviors.
 
-This document provides the Software Requirements Specification (SRS) for the WorkSync. It defines the system’s functionalities, performance criteria, security requirements, and overall system architecture necessary for development.
+This document follows the IEEE SRS documentation structure and standards.
 
----
+----------
 
-## Version History
+# Version History
 
-* **Version 1.0** – Initial Draft.
-* **Version 1.1** – Added non-functional requirements and system models.
-* **Version 1.2** – Refined system evolution and glossary.
+Version
 
----
+Date
 
-## 1. Introduction
+Description
 
-### Purpose
+1.0
 
-The WorkSync is a web-based application designed to enhance organizational efficiency by streamlining task assignment, real-time monitoring, collaboration, and reporting. The system enables teams to effectively manage their workflows, ensuring timely project completion and optimized resource allocation.
+May 2026
 
-### Document Conventions
+Initial Draft
 
-This document follows the IEEE SRS standard, using:
+1.1
 
-* **Must** – Indicates mandatory requirements.
-* **Should** – Indicates recommended features.
-* **May** – Indicates optional enhancements.
+May 2026
 
-### Intended Audience and Reading Suggestions
+Added Functional & Non-Functional Requirements
 
-* **Project Managers & Developers** – For system implementation guidance.
-* **Stakeholders & Business Analysts** – To understand system capabilities.
-* **Testers & QA Teams** – To validate compliance with requirements.
+1.2
 
-### Scope
+May 2026
 
-The system provides:
+Added System Models & Security Requirements
 
-* Task assignment and tracking
-* Real-time monitoring and reporting
-* Integrated collaboration tools (notes, coding workspace, file sharing)
-* Customizable dashboards
-* Role-based access and security features
+2.0
 
-### References
+May 2026
 
-* IEEE Standard 830-1998 (Software Requirements Specification)
-* Internal Business Requirement Specification (BRS)
-* System Modeling Documentation
+Finalized Complete SRS
 
----
+----------
 
-## 2. Overall Description
+# 1. Introduction
 
-### Product Perspective
+## 1.1 Purpose
 
-The WorkSync is a standalone web application, integrating with external services such as Slack, Microsoft Teams, and other productivity tools.
+The purpose of WorkSync is to provide organizations with a centralized platform for managing tasks, projects, collaboration, employee productivity, and reporting. The system helps improve workflow efficiency, communication, and project tracking through real-time updates and smart management tools.
 
-### Product Functions
+----------
 
-* **Task Management:** Assign, track, and complete tasks.
-* **Project Management:** Monitor project progress and milestones.
-* **Reporting & Analytics:** Generate real-time reports and performance metrics.
-* **Collaboration:** Share files, take notes, and work within a digital workspace.
-* **Notifications:** Alerts for deadlines, updates, and system messages.
+## 1.2 Document Conventions
 
-### User Classes and Characteristics
+The following conventions are used throughout this document:
 
-* **Admin:** Manages users, permissions, and system settings.
-* **Manager:** Assigns tasks, tracks progress, and reviews reports.
-* **Employee:** Works on assigned tasks and updates status.
+-   **Must** → Mandatory requirement
+-   **Should** → Recommended requirement
+-   **May** → Optional enhancement
 
-### Operating Environment
+----------
 
-* Web-based application (accessible via Chrome, Firefox, Edge).
-* Cloud-hosted infrastructure.
-* **Database:** MongoDB.
+## 1.3 Intended Audience
 
-### Design and Implementation Constraints
+This document is intended for:
 
-* Compliance with GDPR and security regulations.
-* Scalability to support different organizational sizes.
+-   Project Managers
+-   Software Developers
+-   UI/UX Designers
+-   QA/Test Engineers
+-   Stakeholders
+-   System Administrators
 
-### Assumptions and Dependencies
+----------
 
-* Internet access is required for real-time updates.
-* Future mobile application integration may be considered.
+## 1.4 Scope
 
----
+WorkSync provides:
 
-## 3. System Requirements Specification
+-   Task management
+-   Project tracking
+-   Team collaboration
+-   Real-time notifications
+-   Reporting & analytics
+-   File sharing
+-   Role-based access control
+-   AI-powered productivity support
 
-### Functional Requirements
+The platform is designed as a cloud-based web application accessible from modern browsers.
 
-* **User Authentication**
-* The system must allow users to register, log in, and reset passwords.
-* The system must enforce role-based authentication (Admin, Manager, Employee).
+----------
 
+## 1.5 References
 
-* **Task Management**
-* Managers must be able to create, assign, and track tasks.
-* Employees must be able to update task statuses.
-* The system must send notifications when tasks are assigned or updated.
+-   IEEE 830 Software Requirements Specification Standard
+-   Business Requirement Specification (BRS)
+-   UML Modeling Documentation
+-   MongoDB Documentation
+-   REST API Standards
 
+----------
 
-* **Project Management**
-* The system must allow users to create and manage projects.
-* Each project must be linked to multiple tasks.
+# 2. Overall Description
 
+## 2.1 Product Perspective
 
-* **Reporting & Analytics**
-* Managers must be able to generate reports on task completion rates and employee performance.
-* Reports should be exportable in PDF and CSV formats.
+WorkSync is a standalone web application that integrates with third-party services such as:
 
+-   Slack
+-   Microsoft Teams
+-   Google Drive
+-   GitHub
+-   Email Services
 
-* **Collaboration Tools**
-* Users should be able to take notes and share files within the system.
-* The system may integrate a basic text editor and coding workspace.
+The system uses cloud-hosted infrastructure and supports scalable deployment.
 
+----------
 
-* **Notifications**
-* The system must send alerts for task assignments, deadline reminders, and updates.
+## 2.2 Product Functions
 
+The system includes the following major functions:
 
+### Task Management
 
-### Non-Functional Requirements
+-   Create tasks
+-   Assign tasks
+-   Set deadlines
+-   Track progress
+-   Update task status
 
-* **Performance Requirements**
-* The system must support 500+ concurrent users.
-* Task updates must reflect in real time.
+### Project Management
 
+-   Create projects
+-   Manage milestones
+-   Monitor team progress
+-   Generate project summaries
 
-* **Security Requirements**
-* The system must implement role-based access control.
-* All sensitive user data must be encrypted.
+### Collaboration
 
+-   Team messaging
+-   Notes workspace
+-   File sharing
+-   Coding workspace
 
-* **Usability Requirements**
-* The system should have an intuitive UI/UX.
-* The system must support accessibility standards.
+### Reporting & Analytics
 
+-   Productivity reports
+-   Task completion reports
+-   Employee performance metrics
+-   Export reports
 
-* **Reliability and Availability**
-* The system must ensure 99.9% uptime.
-* A backup mechanism must be in place for data recovery.
+### Notifications
 
+-   Deadline reminders
+-   Task assignment alerts
+-   Real-time updates
 
-* **Maintainability and Support**
-* The system must support modular updates.
-* The system must provide proper logging and debugging mechanisms.
+### AI Assistance
 
+-   Smart task recommendations
+-   Productivity insights
+-   Deadline prediction
 
-* **Portability**
-* The system should be accessible from Windows, Mac, and Linux.
-* The system must support cloud deployment.
+----------
 
+## 2.3 User Classes and Characteristics
 
+User Role
 
----
+Description
 
-## 4. System Models
+Admin
 
+Full system access, user management, settings management
 
-> * **CONTEXT DIAGRAM**
-<img src="images/2. Context Model.png">
+Manager
 
-> * **ACTIVITY DIAGRAM**
+Creates projects, assigns tasks, monitors progress
 
-<img src="images/3. Activity Diagram.png" alt="Activity Diagram">
+Employee
 
-> * **USE CASE DIAGRAMS**
-<img src="images/4. Use Case Diagrams_page-0001.jpg" alt="Use Case Diagrams Page 1">
-<img src="images/4. Use Case Diagrams_page-0002.jpg" alt="Use Case Diagrams Page 2">
-<img src="images/4. Use Case Diagrams_page-0003.jpg" alt="Use Case Diagrams Page 3">
-<img src="images/4. Use Case Diagrams_page-0004.jpg" alt="Use Case Diagrams Page 4"> 
+Completes assigned tasks and updates work status
 
-> * **SEQUENCE DIAGRAM**
+----------
 
-<img src="images/5. Sequence Diagram_page-0001.jpg">
+## 2.4 Operating Environment
 
-> * **ENTITY-RELATIONSHIP DIAGRAM**
-<img src="images/6. ER Diagram.png" alt="ER Diagram">
+-   Frontend: React.js / Next.js
+-   Backend: Node.js + Express.js
+-   Database: MongoDB
+-   Hosting: Cloud Infrastructure (AWS / Azure / Firebase)
+-   Browsers Supported:
+    -   Google Chrome
+    -   Mozilla Firefox
+    -   Microsoft Edge
+    -   Safari
 
-> * **STATE DIAGRAM**
-<img src="images/7. State Diagram.png" alt="State Diagram">
+----------
 
----
+## 2.5 Design and Implementation Constraints
 
-## 5. System Evolution
+-   Must comply with GDPR and data protection policies
+-   Must support scalable architecture
+-   Must support secure authentication
+-   Must support responsive design
 
-### Assumptions
+----------
 
-* AI should be integrated to boost production.
-* Future support for mobile platforms.
-* Scalability for enterprise usage.
+## 2.6 Assumptions and Dependencies
 
-### Expected Changes
+-   Internet connection is required
+-   Users have valid login credentials
+-   Cloud services remain operational
+-   Email notification services are available
 
-* Integration with third-party services.
-* AI-powered task recommendations.
+----------
 
----
+# 3. System Requirements Specification
 
-## 6. Appendices
+# 3.1 Functional Requirements
 
-### Hardware Requirements
+## 3.1.1 User Authentication
 
-* Cloud-based infrastructure with scalable servers.
+### Description
 
-### Database Requirements
+The system shall provide secure authentication and authorization.
 
-* Must include logical data relationships.
+### Requirements
+
+-   Users must be able to register
+-   Users must be able to log in
+-   Users must be able to reset passwords
+-   The system must implement JWT/OAuth authentication
+-   Passwords must be encrypted
+-   Multi-factor authentication may be supported
+
+----------
+
+## 3.1.2 User Management
+
+### Requirements
+
+-   Admins must manage users
+-   Admins must assign roles
+-   Admins must deactivate accounts
+-   Managers should manage team members
+
+----------
+
+## 3.1.3 Task Management
+
+### Requirements
+
+-   Managers must create tasks
+-   Managers must assign tasks
+-   Employees must update task progress
+-   Users must comment on tasks
+-   Users must attach files to tasks
+-   Tasks must support priorities:
+    -   High
+    -   Medium
+    -   Low
+
+----------
+
+## 3.1.4 Project Management
+
+### Requirements
+
+-   Users must create projects
+-   Projects must contain multiple tasks
+-   Projects must support deadlines
+-   Managers must monitor project completion percentage
+-   Users should visualize progress using dashboards
+
+----------
+
+## 3.1.5 Collaboration Module
+
+### Requirements
+
+-   Users should share files
+-   Users should create notes
+-   Users may collaborate in coding workspace
+-   Users should communicate through internal chat
+
+----------
+
+## 3.1.6 Reporting & Analytics
+
+### Requirements
+
+-   Managers must generate reports
+-   Reports should include:
+    -   Task completion rate
+    -   Employee productivity
+    -   Delayed tasks
+    -   Project summaries
+-   Reports must export in:
+    -   PDF
+    -   CSV
+    -   Excel
+
+----------
+
+## 3.1.7 Notification System
+
+### Requirements
+
+-   Users must receive real-time notifications
+-   Deadline reminders must be sent
+-   Task assignment notifications must be sent
+-   Email notifications should be supported
+
+----------
+
+## 3.1.8 AI Productivity Features
+
+### Requirements
+
+-   The system may recommend task priorities
+-   The system may predict project delays
+-   AI should provide productivity insights
+
+----------
+
+# 3.2 Non-Functional Requirements
+
+## 3.2.1 Performance Requirements
+
+-   The system must support 500+ concurrent users
+-   Response time should be below 3 seconds
+-   Real-time updates must synchronize instantly
+
+----------
+
+## 3.2.2 Security Requirements
+
+-   Role-Based Access Control (RBAC) must be implemented
+-   Sensitive data must be encrypted
+-   HTTPS must be enforced
+-   Session timeout must be supported
+-   Secure API validation must be implemented
+
+----------
+
+## 3.2.3 Reliability & Availability
+
+-   System uptime must be 99.9%
+-   Automated backups must occur daily
+-   Recovery mechanisms must exist for failures
+
+----------
+
+## 3.2.4 Usability Requirements
+
+-   The interface should be user-friendly
+-   The platform must support responsive design
+-   Accessibility standards should be maintained
+
+----------
+
+## 3.2.5 Maintainability
+
+-   The system should use modular architecture
+-   APIs should be documented
+-   Logging and debugging tools must be implemented
+
+----------
+
+## 3.2.6 Scalability
+
+-   The system must support organizational growth
+-   Cloud deployment must allow horizontal scaling
+
+----------
+
+## 3.2.7 Portability
+
+-   Must support:
+    -   Windows
+    -   Linux
+    -   macOS
+-   Must run on major web browsers
+
+----------
+
+# 4. System Models
+
+## 4.1 Context Diagram
+
+The context diagram illustrates interaction between:
+
+-   Admin
+-   Manager
+-   Employee
+-   External Services
+-   Notification Services
+
+----------
+
+## 4.2 Use Case Diagram
+
+### Admin Use Cases
+
+-   Manage Users
+-   Configure System
+-   Monitor Activity
+
+### Manager Use Cases
+
+-   Create Projects
+-   Assign Tasks
+-   Generate Reports
+
+### Employee Use Cases
+
+-   Update Tasks
+-   Upload Files
+-   Communicate with Team
+
+----------
+
+## 4.3 Activity Diagram
+
+Activities include:
+
+1.  User Login
+2.  Project Creation
+3.  Task Assignment
+4.  Task Completion
+5.  Report Generation
+
+----------
+
+## 4.4 Sequence Diagram
+
+Sequence Flow:
+
+1.  User sends request
+2.  Server validates authentication
+3.  Database processes request
+4.  System sends response
+5.  Notification service triggers alerts
+
+----------
+
+## 4.5 Entity Relationship Diagram (ERD)
+
+### Main Entities
+
+-   User
+-   Project
+-   Task
+-   Notification
+-   File
+-   Report
+
+### Relationships
+
+-   One Project → Many Tasks
+-   One User → Many Tasks
+-   One Manager → Many Employees
+
+----------
+
+## 4.6 State Diagram
+
+Task states:
+
+-   Pending
+-   In Progress
+-   Under Review
+-   Completed
+-   Archived
+
+----------
+
+# 5. External Interface Requirements
+
+## 5.1 User Interfaces
+
+The system should provide:
+
+-   Dashboard
+-   Task Boards
+-   Analytics Charts
+-   File Upload Interface
+-   Notification Panel
+
+----------
+
+## 5.2 Hardware Interfaces
+
+-   Cloud servers
+-   Backup servers
+
+----------
+
+## 5.3 Software Interfaces
+
+-   MongoDB
+-   REST APIs
+-   Slack API
+-   Microsoft Teams API
+
+----------
+
+## 5.4 Communication Interfaces
+
+-   HTTPS Protocol
+-   WebSocket for real-time updates
+-   SMTP for email notifications
+
+----------
+
+# 6. Database Requirements
+
+## Database Collections
+
+### Users
+
+Field
+
+Type
+
+userId
+
+ObjectId
+
+name
+
+String
+
+email
+
+String
+
+role
+
+String
+
+### Projects
+
+Field
+
+Type
+
+projectId
+
+ObjectId
+
+projectName
+
+String
+
+deadline
+
+Date
+
+### Tasks
+
+Field
+
+Type
+
+taskId
+
+ObjectId
+
+assignedTo
+
+ObjectId
+
+status
+
+String
+
+----------
+
+# 7. System Evolution
+
+## Future Enhancements
+
+-   Mobile Application
+-   AI Chat Assistant
+-   Voice Commands
+-   Advanced Analytics
+-   Video Meeting Integration
+
+----------
+
+# 8. Appendices
+
+## 8.1 Hardware Requirements
+
+-   Cloud infrastructure
+-   Scalable hosting
+-   Backup storage
+
+----------
+
+## 8.2 Software Requirements
+
+-   Node.js
+-   MongoDB
+-   React.js
+-   Git
+
+----------
+
+# 9. Conclusion
+
+The WorkSync system is designed to improve organizational workflow, collaboration, and productivity through a secure, scalable, and intelligent platform. This SRS document defines all essential system requirements necessary for successful development, deployment, testing, and maintenance of the application.
